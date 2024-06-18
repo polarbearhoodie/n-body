@@ -1,0 +1,68 @@
+% Document Class
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+% Packages
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage{geometry} % to change the page dimensions
+
+% PAGE DIMENSIONS
+\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+\geometry{margin=1in} % for example, change the margins to 2 inches all round
+
+% Title Page
+\title{Three Body Problem: A TV Show/Learning Example}
+\author{Andrew Chao}
+\date{\today}
+
+% Document
+\begin{document}
+\maketitle
+
+\section{Abstract}
+The author rants about the utter disregard the show \emph{Three Body Problem} has toward its initial premise, and is disappointed. He will continue watching it because everything else is pretty good, although a bit contrived. 
+
+\section{Introduction}
+
+This is a tutorial on modeling a 3-Body Problem and some commentary on the show of the same name. I'm sure you've seen the show, so let's just say I disagree with two things that the show does. The first is the idea that life is mutually exclusive, and the second is that physics can't model a 3-Body problem. The first we can address right now.\\
+
+The show is simple - there are not enough planets, so we are going to fight over the only habitable planet in "4" light years. This premise feels rather contrived on account of the fact that there seem to be other solutions that have been yet to be considered, like the entangled photons the "size" of a planet, or just moving a star, or contrived urgency of it all. The aliens are simultaneously capable of hiding the manufacturing and fabrication of tech beyond our wildest dreams and incapable of doing the bare minimum of OpSec. The show feels a lot closer "Unsolved Problem of the Week, with Aliens" when examined closely, but the explosions were large and the drama was nice, so to the resident aliens: you chose the wrong problems.\\
+
+Now, lets address what unsolvable really means. When someone says something is unsolvable, they are making a statement that you can check. If someone has solved it, it is a lie. If someone has proven that it cannot be solved, it is true. If it is just a "really hard problem" then they are exaggerating and the only reasonable action left is to pickle them in snail juice. (I thought this was an insult; apparently, this is a real thing) There are thousands of solutions to the three body problem, but there is no general solution - "one to rule them all". What we are going to show, is that none of it matters in the context of the show because we can model the movements without knowing much aside from some basic formulas.\\
+
+The following notes are the general thought process required to perform a simple simulation. 
+
+\section{A Introduction to Functions}
+Let's start simple. In order to get a better idea of what we want to do, we need to examine what tools we have. A function is just a way of manipulating numbers, that preserves several "nice" properties. There are better definitions, but generally, you take one number, and change it into another number.
+
+This is the basic y = x + 5 equations.
+
+\section{What is Time, Really?}
+
+Functions are nice, but we need to model something that occurs over the course of time - with parametric equations. In this case, rather than seeing a function has a fixed relation to another variable, we can have a function that changes with respect to time. This is powerful tool - while we can represent time as a variable in 3D, it is much easier for us to visualize it as part of time.
+
+This is the standard f(x, t) equations.
+
+\subsection{Swimming in the Vector Fields}
+
+Think back to high school and try to imagine a straight line - no curves, no bends, just a line. If we want to determine where that line goes, we can just keep drawing the line on and on. This is called linear interpolation. Once we are have a vector field that we can use to recursively approximate our position by following the arrows on a vector field.
+
+Think about it as asking for directions. Each time we reach a new point, we ask for directions. We don't know the exact path that we are supposed to take, but as long as we ask for directions often enough, we will end up in roughly the same spot.
+
+\subsection{What was it about Gravity?}
+
+We can model gravity as a constant vector field - but note, gravity is a force that changes velocity, not position. Any regular object already has a velocity component. We can work around this by keeping track of the force vector and velocity vector independently.
+
+
+\section{Non-Constant Forces, and Approximations}
+Now, the N-body problem is initially difficult problem because the forces are exerted by the motion of the bodies themselves - and the forces exerted are non-constant, unlike our previous model of gravity. We simply calculate the forces exerted by each body on every other body every single frame of the animation. This is O(n\^2), but it suffices for an introduction to the process.
+
+\section{Better Models}
+Obviously, this model has errors. The error propagates quickly, the model does not account for conservation of energy, the static center of mass or other restrictions. We shouldn't rely on this model too much if the planet was at stake. But this is also a good starting point for more advanced models. To start, we can next model this as a system of ordinary differentials and have better approximation methods, as well as establish more constraints on the system.
+
+I will be working with fast multipole methods in the future.
+
+\section{Infinite Salt}
+
+The show waves away the understanding that the scientific progress needed to perform interstellar travel includes n-body simulations by saying that it is only the impetus to conquer a new world. Is it really? One of the more obvious solutions seems to be altering their own solar system. Just push one of the stars away. They have the technology, just not the imagination.
+
+\end{document}
